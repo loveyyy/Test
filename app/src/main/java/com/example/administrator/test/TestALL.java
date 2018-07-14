@@ -88,8 +88,6 @@ public class TestALL extends Activity implements View.OnClickListener{
         btn_readcode.setOnClickListener(this);
         btn_todraw.setOnClickListener(this);
     }
-
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onClick(View view) {
         switch (view.getId()){
