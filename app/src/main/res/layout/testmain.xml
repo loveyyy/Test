@@ -59,6 +59,15 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="75dp"
             android:text="绘制线形图" />
+
+        <Button
+            android:id="@+id/btn_Mpchats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_todraw"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-75dp"
+            android:text="线形图" />
     </RelativeLayout>
 
 

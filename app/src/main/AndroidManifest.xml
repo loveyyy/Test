@@ -25,6 +25,7 @@
         <activity android:name=".TestChart"/>
         <activity android:name=".First"/>
         <activity android:name=".ReadCodeActivity"/>
+        <activity android:name=".MpLineChats"/>
     </application>
 
 </manifest>
