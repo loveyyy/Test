@@ -44,15 +44,28 @@ public class MpLineChats  extends Activity {
         lineChart=findViewById(R.id.MpLinechart);
         lineChart.setDrawGridBackground(false);
         lineChart.setTouchEnabled(true);
-        lineChart.setDragEnabled(false);
+        lineChart.setDragEnabled(true);
         lineChart.setScaleEnabled(false);
         lineChart.setPinchZoom(true);
+        lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                Log.e("Tag","onValueSelected");
+                Log.e("Tag",""+e.toString());
+            }
+
+            @Override
+            public void onNothingSelected() {
+                Log.e("Tag","onNothingSelected");
+            }
+        });
         initLineChart(/**数据集**/);
     }
 
     private void initLineChart() {
         //显示边界
         lineChart.setDrawBorders(false);
+
         //设置数据
         for (int i = 0; i < score.length; i++)
         {
@@ -147,13 +160,10 @@ public class MpLineChats  extends Activity {
         MyMarkerView mv = new MyMarkerView(MpLineChats.this);
         mv.setChartView(lineChart);
         lineChart.setMarker(mv);
-        lineChart.invalidate();
         //设置数据
-        lineChart.invalidate();
         lineChart.setData(data);
         //图标刷新
         lineChart.invalidate();
-
 
     }
       public String format(float x) {
@@ -161,7 +171,7 @@ public class MpLineChats  extends Activity {
                 System.currentTimeMillis() - (long) (30 - (int) x) * 24 * 60 * 60 * 1000);
         return format.toString();
     }
-    class MyMarkerView extends MarkerView {
+    class MyMarkerView extends Mark {
         private TextView tvContent;
 
         private DecimalFormat format = new DecimalFormat("##0");
@@ -176,6 +186,7 @@ public class MpLineChats  extends Activity {
         public void refreshContent(Entry e, Highlight highlight) {
             super.refreshContent(e, highlight);
             tvContent.setText(format(e.getX()) + "\n" + format.format(e.getY()) + "辆");
+            Log.e("Tga",e.toString());
         }
 
         //标记相对于折线图的偏移量
@@ -184,7 +195,6 @@ public class MpLineChats  extends Activity {
             return  new MPPointF(-(getWidth() / 2), -getHeight());
         }
 
-        //时间格式化（显示今日往前30天的每一天日期）
 
     }
 }

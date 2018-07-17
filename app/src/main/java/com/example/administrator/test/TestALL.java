@@ -33,7 +33,7 @@ import com.google.zxing.qrcode.QRCodeReader;
 import Utils.QrcCodeUtils;
 
 public class TestALL extends Activity implements View.OnClickListener{
-    private Button btn_creat_code,btn_readcode,btn_todraw,btn_Mpcharts;
+    private Button btn_creat_code,btn_readcode,btn_Mpcharts;
     private ImageView imageView,iv_big;
     private Bitmap bitmap;
     private RelativeLayout rl;
@@ -84,10 +84,8 @@ public class TestALL extends Activity implements View.OnClickListener{
         });
         btn_creat_code=findViewById(R.id.btn_creatcode);
         btn_readcode=findViewById(R.id.btn_readcode);
-        btn_todraw=findViewById(R.id.btn_todraw);
         btn_creat_code.setOnClickListener(this);
         btn_readcode.setOnClickListener(this);
-        btn_todraw.setOnClickListener(this);
         btn_Mpcharts.setOnClickListener(this);
     }
     @Override
@@ -110,10 +108,6 @@ public class TestALL extends Activity implements View.OnClickListener{
                 break;
 
 
-            case R.id.btn_todraw:
-                Intent intent1=new Intent(TestALL.this,TestChart.class);
-                startActivity(intent1);
-                break;
             case R.id.iv_code:
                     iv_big.setImageBitmap(bitmap);
                     iv_big.setVisibility(View.VISIBLE);
